@@ -38,8 +38,11 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
         with:
-          # Turns Pages on for the repository the first time this runs, so
-          # there is no manual step between pushing and having a live site.
+          # Only meaningful once Pages has been switched on by hand under
+          # Settings -> Pages (Source: GitHub Actions). Creating a Pages site
+          # needs administration: write, which a GITHUB_TOKEN cannot be
+          # granted, so this cannot bootstrap an unconfigured repo -- it just
+          # keeps the config in sync once one exists.
           enablement: true
 
       - name: Install

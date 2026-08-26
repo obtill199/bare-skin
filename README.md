@@ -27,8 +27,15 @@ npx serve out
 
 ## Deploy
 Every push to `main` builds the site and publishes it to GitHub Pages
-(`.github/workflows/deploy.yml`). The first run turns Pages on for the
-repository, so there is nothing to click in Settings.
+(`.github/workflows/deploy.yml`).
+
+Pages has to be switched on once by hand before the first deploy will work:
+**Settings -> Pages -> Build and deployment -> Source: GitHub Actions**. The
+workflow asks `configure-pages` to enable it automatically, but creating a
+Pages site needs `administration: write`, which a workflow's `GITHUB_TOKEN`
+cannot hold -- so that step fails with "Resource not accessible by
+integration" until a repo admin flips the setting. After that it is a no-op
+and deploys run unattended.
 
 Live at https://obtill199.github.io/bare-skin/
 
