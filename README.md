@@ -46,14 +46,21 @@ out of the Pages config and passes it to `next.config.mjs`, which is `/bare-skin
 on the default URL and empty on the custom domain. Redeploy after the domain is
 attached so the built asset URLs pick up the change.
 
-## Immediate next upgrades
-1. Replace placeholder hero treatment area with approved real brand photography.
-2. Add dedicated SEO pages for Brazilian waxing, bikini waxing, brows, legs, face waxing and dermaplaning in Wichita.
-3. Add Google Analytics / Meta Pixel IDs once available.
-4. Add review schema + LocalBusiness structured data.
-5. Add lead capture for Bare Club / promotions.
-6. Model and finalize bundles + membership using real margins before publishing prices.
-7. Add email lifecycle automation integration after provider/consent data is connected.
+## Pricing configuration
+All featured website pricing is managed in `lib/pricing.ts`. Update that file once
+to change the homepage service, membership, and prepaid-offer cards consistently.
+
+Current growth pricing implemented Aug. 26, 2026:
+- Brazilian + stomach strip: $82
+- Brazilian + underarm: $99
+- Brow + upper lip: $45
+- Brow trim add-on: $10
+- Bare Club: $64/month
+- Smooth Duo: $94/month
+- Three-visit Brazilian pack: $199
+- First-time Brazilian remains $63; standard Brazilian remains $70
+
+The GlossGenius catalog must be updated separately so checkout matches the site.
 
 ## Important
 Current service snippets and business facts were sourced from the public Bare Skin Studio GlossGenius and current local business listing on Aug. 26, 2026. Verify before production launch if any business details change.
