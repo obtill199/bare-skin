@@ -18,3 +18,71 @@
 @media(max-width:960px){.heroGrid,.aboutGrid,.processGrid,.faqGrid,.serviceHeroGrid,.serviceContentGrid{grid-template-columns:1fr}.heroCopy{max-width:760px}.heroPortrait{min-height:650px;max-width:680px}.logoTile{left:14px}.splitHeading,.reviewsHeader{grid-template-columns:1fr;gap:28px}.pricingFeatureGrid,.membershipGrid,.serviceLinks{grid-template-columns:1fr}.membershipCard{min-height:360px}.trustrow{justify-content:flex-start}.footerGrid{grid-template-columns:1.2fr 1fr}}
 @media(max-width:720px){.wrap{width:min(100% - 32px,1180px)}.navin{min-height:70px}.brand{font-size:1.08rem}.brandMark{width:34px;height:34px}.links>a:not(.btn){display:none}.navButton{min-height:40px;padding:9px 15px;font-size:.8rem}.hero{padding:52px 0 65px}.hero h1{font-size:clamp(3.2rem,16vw,5.2rem)}.heroPortrait{min-height:500px;border-radius:160px 160px 24px 24px}.logoTile{top:38px;left:10px;width:92px;border-width:5px}.portraitCard{right:14px;bottom:14px;left:14px}.trustrow{display:grid;grid-template-columns:1fr 1fr}.section{padding:78px 0}.priceFeature{grid-template-columns:1fr;padding:28px}.priceStack{align-items:flex-start}.priceFeature>.textLink{grid-column:auto}.priceRow{align-items:start;padding:22px}.priceRowTitle{align-items:flex-start;flex-direction:column;gap:5px}.pricingFooter{align-items:stretch;flex-direction:column}.pricingFooter .btn{width:100%}.reviewCard{min-height:390px;padding:30px}.reviewQuote{font-size:1.55rem}.carouselControls{align-items:flex-end}.carouselDots{display:none}.aboutMonogram{min-height:330px;padding:38px}.serviceBenefits{grid-template-columns:1fr}.footerGrid{grid-template-columns:1fr;gap:34px}.footerBottom{flex-direction:column;gap:5px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* SEO expansion pages and shared navigation */
+.reviewSourceLabel{margin:30px 0 0;color:#d8c8c3;font-size:.82rem}
+.inlineLinkGroup{display:flex;flex-wrap:wrap;gap:10px 24px}
+.singlePlanGrid{grid-template-columns:minmax(280px,620px);justify-content:center}
+.serviceLinks{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.footerGrid{grid-template-columns:1.35fr 1fr .8fr 1fr;gap:42px}
+.footerGrid p,.footerGrid a,.footerHours{color:#bdb2ac;font-size:.86rem;text-decoration:none}
+.footerHours{font-size:.76rem}
+.compactHero h1{max-width:980px}.compactHero p{max-width:760px}
+.aboutPageHero{grid-template-columns:1.05fr .75fr}
+.aboutPagePortrait{position:relative;min-height:520px;overflow:hidden;border-radius:220px 220px 28px 28px;box-shadow:var(--shadow)}
+.aboutPagePortrait img{object-fit:cover;object-position:center top}
+.guideColumns{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.guidePanel{padding:clamp(30px,5vw,52px);border:1px solid var(--line);border-radius:28px;background:var(--paper)}
+.guidePanelTint{background:var(--sand)}
+.guidePanel h2{margin:.3em 0 .6em;font-size:clamp(2rem,4vw,3.5rem)}
+.guideSteps{display:grid;gap:0}
+.guideStep{display:grid;grid-template-columns:24px 1fr;gap:12px;padding:17px 0;border-top:1px solid var(--line)}
+.guideStep svg{margin-top:4px;color:var(--plum)}
+.guideStep p{margin:0;color:var(--muted)}
+.guideStep strong{font-family:Georgia,serif;font-size:1.08rem;font-weight:400}
+.guideStep div p{margin:3px 0 0}
+.serviceGuideSection{background:var(--paper)}
+.inlineSafety,.safetyPanel{display:grid;grid-template-columns:auto 1fr;gap:18px;margin-top:22px;padding:24px;border:1px solid #d8b8af;border-radius:20px;background:#fff7f4}
+.inlineSafety p{margin:0;color:var(--muted)}
+.guideMoreLink{margin-top:24px}
+.safetySection{padding-top:0}
+.safetyPanel{margin-top:0;padding:clamp(28px,5vw,50px)}
+.safetyPanel h2{margin:.2em 0;font-size:clamp(2.2rem,4vw,3.8rem)}
+.safetyPanel p{max-width:900px;margin-bottom:0;color:var(--muted)}
+.relatedSection{background:var(--sand)}
+.relatedLinks{grid-template-columns:repeat(3,1fr)}
+.fullPriceMenu{margin-top:0}
+.fullPriceMenu .priceRow h2{margin:0;font-family:Georgia,serif;font-size:1.25rem;font-weight:400;letter-spacing:0;line-height:1.25}
+.packagePanel{display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;margin-top:28px;padding:34px;border-radius:26px;background:var(--plum);color:#fff}
+.packagePanel h2{margin:.2em 0;font-size:clamp(2rem,4vw,3.6rem)}
+.packagePanel p{max-width:680px;margin:0;color:#d9ceca}
+.packagePrice{display:grid;justify-items:end;gap:16px}
+.packagePrice strong{font-family:Georgia,serif;font-size:3rem;font-weight:400}
+.packagePrice .btn{border-color:#fff;background:#fff;color:var(--plum)}
+.priceDisclaimer{margin:20px 0 0;color:var(--muted);font-size:.8rem}
+.locationGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.locationCard{display:flex;min-height:430px;flex-direction:column;padding:34px;border:1px solid var(--line);border-radius:28px;background:var(--paper)}
+.locationCard>svg{margin-bottom:24px;color:var(--plum)}
+.locationCard h2{margin:.25em 0;font-size:clamp(2rem,3vw,3rem)}
+.locationCard p{color:var(--muted)}
+.locationCard .inlineLink{margin-top:auto}
+.locationBookButton{margin-top:20px}
+.hoursList{margin:5px 0 20px}
+.hoursList>div{display:flex;justify-content:space-between;gap:20px;padding:10px 0;border-bottom:1px solid var(--line)}
+.hoursList dt{font-weight:700}.hoursList dd{margin:0;color:var(--muted)}
+
+@media(max-width:960px){
+  .guideColumns,.locationGrid,.aboutPageHero{grid-template-columns:1fr}
+  .footerGrid{grid-template-columns:1.2fr 1fr}
+  .aboutPagePortrait{max-width:680px}
+  .relatedLinks{grid-template-columns:1fr}
+  .locationCard{min-height:0}
+}
+@media(max-width:720px){
+  .footerGrid{grid-template-columns:1fr;gap:34px}
+  .packagePanel{grid-template-columns:1fr}
+  .packagePrice{justify-items:start}
+  .aboutPagePortrait{min-height:430px}
+  .inlineSafety,.safetyPanel{grid-template-columns:1fr}
+  .guidePanel,.locationCard{padding:28px}
+}

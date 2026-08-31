@@ -9,9 +9,14 @@ export type ServicePage = {
   heading: string;
   lead: string;
   body: string;
+  contentHeading: string;
   serviceType: string;
   highlights: string[];
   benefits: { title: string; description: string }[];
+  preparation: string[];
+  aftercare: string[];
+  safetyNote?: string;
+  relatedSlugs: string[];
   faqs: { question: string; answer: string }[];
 };
 
@@ -27,6 +32,7 @@ export const servicePages: ServicePage[] = [
     heading: 'Professional Brazilian waxing without the awkwardness.',
     lead: 'A private, efficient Brazilian wax with clear communication from start to finish.',
     body: 'Bare Skin Studio offers Brazilian waxing for women in a clean, private East Wichita studio. Kristen explains the process, works efficiently, and keeps comfort at the center of every appointment. Regular maintenance every four to six weeks can make each visit feel easier and help deliver more consistent results.',
+    contentHeading: 'A straightforward Brazilian wax in East Wichita.',
     serviceType: 'Brazilian waxing',
     highlights: ['Private appointment', 'Approximately 15 minutes', 'First-time option available', 'Online booking'],
     benefits: [
@@ -35,6 +41,9 @@ export const servicePages: ServicePage[] = [
       { title: 'Clear communication', description: 'Know what to expect before, during, and after your appointment.' },
       { title: 'Private East Wichita studio', description: 'Appointment-based care in a calm, one-on-one environment.' },
     ],
+    preparation: ['Grow hair to about one-quarter inch.', 'Gently exfoliate one or two days before.', 'Arrive with clean skin and avoid heavy lotions or oils.', 'Wear loose, breathable clothing when possible.'],
+    aftercare: ['Avoid unnecessary friction and heavy sweating for the period Kristen recommends.', 'Skip pools, hot tubs, saunas, and fragranced products immediately after waxing.', 'Resume gentle exfoliation only after the skin has settled.', 'Rebook in four to six weeks for consistent maintenance.'],
+    relatedSlugs: ['first-brazilian-wax-wichita', 'full-body-waxing-wichita'],
     faqs: [
       { question: 'How long should hair be before a Brazilian wax?', answer: 'Aim for roughly one-quarter inch of growth—about the length of a grain of rice. Avoid shaving for approximately two weeks before your visit when possible.' },
       { question: 'How often should I book?', answer: 'Most maintenance clients return every four to six weeks. Kristen can recommend a cadence based on your growth cycle.' },
@@ -52,6 +61,7 @@ export const servicePages: ServicePage[] = [
     heading: 'One trusted specialist for your full waxing routine.',
     lead: 'From brows and underarms to legs, back, chest, and Brazilian waxing, your routine stays simple.',
     body: 'Bare Skin Studio provides professional face and body hair removal for clients who value privacy, consistency, and straightforward service. Mix individual areas or choose popular combinations, then book everything through the studio’s online calendar.',
+    contentHeading: 'Build a waxing routine around the areas you need.',
     serviceType: 'Full-body waxing',
     highlights: ['Face and body services', 'Service combinations', 'Private studio', 'Women and men welcome for eligible services'],
     benefits: [
@@ -60,6 +70,9 @@ export const servicePages: ServicePage[] = [
       { title: 'Professional products', description: 'Services are performed with skin comfort and clean technique in mind.' },
       { title: 'Easy maintenance', description: 'Rebook on a regular schedule to keep your routine predictable.' },
     ],
+    preparation: ['Check the live menu for the areas you want to combine.', 'Allow approximately one-quarter inch of hair growth.', 'Gently exfoliate one or two days ahead.', 'Avoid applying heavy lotion or oil to treatment areas.'],
+    aftercare: ['Follow the area-specific guidance Kristen provides.', 'Reduce friction, heat, and heavy sweating immediately afterward.', 'Use gentle, fragrance-free products on freshly waxed skin.', 'Maintain a predictable rebooking schedule for each area.'],
+    relatedSlugs: ['brazilian-wax-wichita', 'brow-wax-wichita'],
     faqs: [
       { question: 'Which areas can be waxed?', answer: 'The menu includes facial areas, underarms, arms, legs, stomach, back, chest, bikini services, and more. Review the live booking menu for current availability.' },
       { question: 'Can I book more than one area?', answer: 'Yes. You can select multiple eligible services or choose one of the studio’s listed combinations.' },
@@ -77,6 +90,7 @@ export const servicePages: ServicePage[] = [
     heading: 'Polished brows shaped for your natural features.',
     lead: 'Professional brow cleanup and facial waxing with a comfortable, detail-focused approach.',
     body: 'Whether you need regular brow maintenance or want to pair brows with an upper-lip service, Bare Skin Studio makes facial waxing quick and easy. Kristen focuses on a clean result that complements your natural shape rather than forcing a one-size-fits-all brow.',
+    contentHeading: 'Brow shaping that works with your natural features.',
     serviceType: 'Eyebrow waxing',
     highlights: ['Natural-looking shape', 'Brow and lip combination', 'Quick appointment', 'Tweeze option available'],
     benefits: [
@@ -85,6 +99,10 @@ export const servicePages: ServicePage[] = [
       { title: 'Convenient combinations', description: 'Pair brow shaping with upper-lip or other facial waxing services.' },
       { title: 'Comfortable alternatives', description: 'Ask about tweezing when waxing is not the right option for your skin.' },
     ],
+    preparation: ['Let the brows grow enough for Kristen to see the natural shape.', 'Avoid aggressive exfoliation immediately before the appointment.', 'Arrive without heavy brow makeup or oils when possible.', 'Disclose all retinoids, prescriptions, peels, or recent facial treatments.'],
+    aftercare: ['Avoid touching the freshly waxed area unnecessarily.', 'Skip strong actives, fragranced products, and heavy heat while skin settles.', 'Use gentle skin care and follow Kristen’s instructions.', 'Return in roughly three to five weeks based on growth.'],
+    safetyNote: 'Facial waxing may not be appropriate with some retinoids, isotretinoin/Accutane use, prescription skin products, recent peels, laser treatments, sunburn, or broken skin. Tell Kristen before the service; tweezing or rescheduling may be safer.',
+    relatedSlugs: ['full-body-waxing-wichita', 'first-brazilian-wax-wichita'],
     faqs: [
       { question: 'How often should brows be waxed?', answer: 'Many clients return every three to five weeks, depending on their growth pattern and preferred level of maintenance.' },
       { question: 'Can I combine brows and upper lip?', answer: 'Yes. Bare Skin Studio lists a brow and upper-lip combination on the service menu.' },
@@ -102,6 +120,7 @@ export const servicePages: ServicePage[] = [
     heading: 'Your first Brazilian wax, explained honestly.',
     lead: 'A little preparation and the right specialist can make a first appointment feel far less intimidating.',
     body: 'It is normal to feel nervous before a first Brazilian wax. Kristen keeps the appointment professional, private, and conversational, explaining what is happening and checking in along the way. Most first-time appointments are quick, and the studio offers a dedicated new-guest option.',
+    contentHeading: 'What actually happens at a first Brazilian wax.',
     serviceType: 'First-time Brazilian waxing',
     highlights: ['New-guest service', 'Private setting', 'Approximately 15 minutes', 'Aftercare guidance'],
     benefits: [
@@ -110,6 +129,9 @@ export const servicePages: ServicePage[] = [
       { title: 'Wear comfortable clothing', description: 'Loose, breathable clothing can feel better after the appointment.' },
       { title: 'Plan simple aftercare', description: 'Avoid friction, heavy sweating, pools, and fragranced products for the period Kristen recommends.' },
     ],
+    preparation: ['Stop shaving and grow hair to about one-quarter inch.', 'Gently exfoliate one or two days before—not immediately before.', 'Wear loose clothing and arrive with clean skin.', 'Bring questions; Kristen will explain the process before beginning.'],
+    aftercare: ['Avoid friction, intense exercise, pools, hot tubs, and fragranced products for the recommended period.', 'Let the skin settle before resuming exfoliation.', 'Do not shave between maintenance appointments.', 'Plan the next visit in roughly four to six weeks if you want consistent results.'],
+    relatedSlugs: ['brazilian-wax-wichita', 'full-body-waxing-wichita'],
     faqs: [
       { question: 'Will my first Brazilian wax hurt?', answer: 'You will likely feel brief discomfort, but the service moves quickly. Consistent maintenance can make future visits feel easier for many clients.' },
       { question: 'How long does the appointment take?', answer: 'The currently listed first-time Brazilian appointment is approximately 15 minutes.' },

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -9,20 +10,37 @@ import {
   Star,
 } from 'lucide-react';
 import ReviewCarousel from '../components/review-carousel';
-import { bookingUrl, memberships, signaturePricing } from '../lib/pricing';
+import SiteFooter from '../components/site-footer';
+import SiteHeader from '../components/site-header';
+import { bookingUrl, prepaidOffers, signaturePricing } from '../lib/pricing';
 import { servicePages } from '../lib/service-pages';
+import {
+  businessId,
+  email,
+  facebookUrl,
+  hours,
+  instagramUrl,
+  phoneHref,
+  phoneSchema,
+  siteUrl,
+} from '../lib/site';
 
-const googleMapsUrl =
-  'https://www.google.com/maps/search/?api=1&query=Bare+Skin+Studio+11124+E+28th+St+N+Wichita+KS+67226';
+export const metadata: Metadata = {
+  title: { absolute: 'Bare Skin Studio | Brazilian & Full-Body Waxing in Wichita, KS' },
+  description: 'Private, professional Brazilian and full-body waxing in Wichita, Kansas. Book comfortable, confidence-first waxing with Kristen at Bare Skin Studio.',
+  alternates: { canonical: '/' },
+};
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'BeautySalon',
+  '@id': businessId,
   name: 'Bare Skin Studio',
-  image: 'https://bareskinstudioict.com/kristen-hutchison.jpeg',
-  url: 'https://bareskinstudioict.com',
-  telephone: '+1-620-202-1624',
-  email: 'bareskinstudio109@gmail.com',
+  image: `${siteUrl}/kristen-hutchison.webp`,
+  logo: `${siteUrl}/bare-skin-studio-logo.webp`,
+  url: siteUrl,
+  telephone: phoneSchema,
+  email,
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
@@ -33,16 +51,14 @@ const localBusinessSchema = {
     addressCountry: 'US',
   },
   areaServed: { '@type': 'City', name: 'Wichita' },
-  sameAs: [
-    'https://www.instagram.com/bareskinstudioict',
-    'https://www.facebook.com/estheticswithkristen/',
-  ],
-  openingHoursSpecification: [
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Tuesday', opens: '14:00', closes: '18:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Wednesday', opens: '09:30', closes: '14:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Friday', opens: '09:30', closes: '14:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:30', closes: '12:00' },
-  ],
+  founder: { '@type': 'Person', name: 'Kristen Hutchison' },
+  sameAs: [instagramUrl, facebookUrl],
+  openingHoursSpecification: hours.map((item) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: item.day,
+    opens: item.opens,
+    closes: item.closes,
+  })),
 };
 
 export default function Home() {
@@ -56,21 +72,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
 
-      <header className="nav">
-        <div className="wrap navin">
-          <Link className="brand" href="/" aria-label="Bare Skin Studio home">
-            <span className="brandMark">BS</span>
-            <span>Bare Skin Studio</span>
-          </Link>
-          <nav className="links" aria-label="Main navigation">
-            <a href="#services">Pricing</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#about">Meet Kristen</a>
-            <a href="#faq">FAQ</a>
-            <a className="btn navButton" href={bookingUrl}>Book now</a>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="hero">
@@ -83,18 +85,18 @@ export default function Home() {
                 comfortable, and refreshingly judgment-free.
               </p>
               <div className="heroProof" aria-label="Studio highlights">
-                <span><Star size={16} fill="currentColor" /> 5.0-rated care</span>
+                <span><Star size={16} fill="currentColor" /> Five-star client care</span>
                 <span><ShieldCheck size={17} /> Private studio</span>
               </div>
               <div className="actions">
                 <a className="btn" href={bookingUrl}>Book your wax <ArrowRight size={17} /></a>
-                <a className="btn alt" href="#services">Explore pricing</a>
+                <Link className="btn alt" href="/pricing/">Explore pricing</Link>
               </div>
             </div>
 
             <div className="heroPortrait">
               <Image
-                src="/kristen-hutchison.jpeg"
+                src="/kristen-hutchison.webp"
                 alt="Kristen Hutchison, waxing specialist at Bare Skin Studio in Wichita"
                 fill
                 priority
@@ -106,7 +108,7 @@ export default function Home() {
                 <span>Full-body waxing • Wichita, KS</span>
               </div>
               <div className="logoTile">
-                <Image src="/bare-skin-studio-logo.jpeg" alt="Bare Skin Studio logo" width={140} height={175} />
+                <Image src="/bare-skin-studio-logo.webp" alt="Bare Skin Studio logo" width={140} height={175} />
               </div>
             </div>
           </div>
@@ -170,8 +172,8 @@ export default function Home() {
             </div>
 
             <div className="pricingFooter">
-              <p>Looking for another area? Browse the complete face and body waxing menu.</p>
-              <a className="btn" href={bookingUrl}>View all services <ArrowRight size={17} /></a>
+              <p>Looking for another area? Compare the studio&apos;s current face and body service pricing.</p>
+              <Link className="btn" href="/pricing/">View website pricing <ArrowRight size={17} /></Link>
             </div>
           </div>
         </section>
@@ -185,14 +187,12 @@ export default function Home() {
               </div>
               <div className="ratingLockup">
                 <div className="stars" aria-label="Five stars">★★★★★</div>
-                <strong>5.0</strong>
-                <span>Clients mention comfort, cleanliness, and Kristen&apos;s easygoing care.</span>
+                <strong>5-star</strong>
+                <span>Verified clients mention comfort, cleanliness, and Kristen&apos;s easygoing care.</span>
               </div>
             </div>
             <ReviewCarousel />
-            <a className="reviewSource" href={googleMapsUrl} target="_blank" rel="noreferrer">
-              Find Bare Skin Studio on Google <ArrowRight size={15} />
-            </a>
+            <p className="reviewSourceLabel">Feedback shared by verified Bare Skin Studio clients.</p>
           </div>
         </section>
 
@@ -215,9 +215,10 @@ export default function Home() {
                 clean private space in East Wichita. First visit or fiftieth, you&apos;ll always know
                 what to expect.
               </p>
-              <a className="inlineLink" href="https://www.instagram.com/bareskinstudioict" target="_blank" rel="noreferrer">
-                Follow the studio on Instagram <ArrowRight size={16} />
-              </a>
+              <div className="inlineLinkGroup">
+                <Link className="inlineLink" href="/about-kristen/">Learn more about Kristen <ArrowRight size={16} /></Link>
+                <a className="inlineLink" href={instagramUrl} target="_blank" rel="noreferrer">Follow the studio on Instagram <ArrowRight size={16} /></a>
+              </div>
             </div>
           </div>
         </section>
@@ -244,29 +245,28 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section membershipSection" id="membership">
+        <section className="section membershipSection" id="package">
           <div className="wrap">
             <div className="sectionHeading centerHeading">
-              <div className="eyebrow lightEyebrow">Maintenance plans</div>
-              <h2>Make smooth skin<br /><em>your routine.</em></h2>
-              <p>Monthly plans and prepaid visits add value without adding complexity.</p>
+              <div className="eyebrow lightEyebrow">Prepaid savings</div>
+              <h2>Three visits.<br /><em>One easy plan.</em></h2>
+              <p>The prepaid Brazilian package rewards a consistent routine without a recurring membership.</p>
             </div>
-            <div className="membershipGrid">
-              {memberships.map((plan, index) => (
-                <article className={`membershipCard ${index === 0 ? 'membershipFeatured' : ''}`} key={plan.name}>
+            <div className="membershipGrid singlePlanGrid">
+              {prepaidOffers.map((plan, index) => (
+                <article className="membershipCard membershipFeatured" key={plan.name}>
                   <span className="planNumber">0{index + 1}</span>
                   <div className="offerBadge light">{plan.badge}</div>
                   <h3>{plan.name}</h3>
                   <div className="price">{plan.price}</div>
                   <p>{plan.description}</p>
-                  <a className="btn lightButton" href={bookingUrl}>Choose {plan.name}</a>
+                  <a className="btn lightButton" href={bookingUrl}>View package availability</a>
                 </article>
               ))}
             </div>
             <p className="terms">
-              Memberships renew monthly until canceled. One included service may be redeemed per
-              billing cycle and does not roll over. Prepaid packs are non-transferable. Contact
-              Bare Skin Studio before purchase with eligibility or redemption questions.
+              The three-visit package is a one-time prepaid purchase and is non-transferable. Review
+              the current checkout terms before purchasing or contact Bare Skin Studio with questions.
             </p>
           </div>
         </section>
@@ -281,7 +281,7 @@ export default function Home() {
               <p>Helpful local guides answer the questions clients ask most before booking.</p>
             </div>
             <div className="serviceLinks">
-              {servicePages.slice(0, 3).map((service) => (
+              {servicePages.map((service) => (
                 <Link className="serviceLinkCard" href={`/services/${service.slug}/`} key={service.slug}>
                   <span>{service.shortLabel}</span>
                   <h3>{service.cardTitle}</h3>
@@ -327,34 +327,13 @@ export default function Home() {
             <p>Private full-body waxing in East Wichita with easy online booking.</p>
             <div className="actions centeredActions">
               <a className="btn" href={bookingUrl}>Book Bare Skin Studio <ArrowRight size={17} /></a>
-              <a className="btn alt" href="tel:+16202021624">Call (620) 202-1624</a>
+              <a className="btn alt" href={phoneHref}>Call (620) 202-1624</a>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="wrap footerGrid">
-          <div>
-            <div className="brand footerBrand"><span className="brandMark">BS</span><span>Bare Skin Studio</span></div>
-            <p>Private, professional full-body waxing in Wichita, Kansas.</p>
-          </div>
-          <div>
-            <strong>Visit</strong>
-            <a href={googleMapsUrl} target="_blank" rel="noreferrer">11124 E 28th St N<br />Suite 109, Wichita, KS 67226</a>
-          </div>
-          <div>
-            <strong>Connect</strong>
-            <a href="tel:+16202021624">(620) 202-1624</a>
-            <a href="mailto:bareskinstudio109@gmail.com">bareskinstudio109@gmail.com</a>
-            <a href={bookingUrl}>Book online</a>
-          </div>
-        </div>
-        <div className="wrap footerBottom">
-          <span>© {new Date().getFullYear()} Bare Skin Studio</span>
-          <span>Wichita, Kansas</span>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

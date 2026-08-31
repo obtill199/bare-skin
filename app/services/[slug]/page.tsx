@@ -22,6 +22,11 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       url: `https://bareskinstudioict.com/services/${service.slug}/`,
       type: 'website',
     },
+    twitter: {
+      card: 'summary',
+      title: service.metaTitle,
+      description: service.metaDescription,
+    },
   };
 }
 

@@ -52,13 +52,14 @@ to change the homepage service, membership, and prepaid-offer cards consistently
 
 Current growth pricing implemented Aug. 26, 2026:
 - Brazilian + stomach strip: $82
-- Brazilian + underarm: $99
-- Brow + upper lip: $45
-- Brow trim add-on: $10
-- Bare Club: $64/month
-- Smooth Duo: $94/month
+- Brazilian + underarm: $104
+- Brow + upper lip: $48
+- Brow trim add-on: $6
 - Three-visit Brazilian pack: $199
 - First-time Brazilian remains $63; standard Brazilian remains $70
+
+Membership cards are intentionally hidden until Kristen is ready to launch them. The
+three-visit Brazilian pack is the only recurring-value offer currently promoted.
 
 The GlossGenius catalog must be updated separately so checkout matches the site.
 
