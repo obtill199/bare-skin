@@ -7,6 +7,8 @@ export type PriceItem = {
 };
 
 export const bookingUrl = 'https://bareskinstudioict.glossgenius.com/services';
+export const packagesUrl = 'https://bareskinstudioict.glossgenius.com/shop/packages';
+export const membershipsUrl = 'https://bareskinstudioict.glossgenius.com/shop/memberships';
 
 export const signaturePricing: PriceItem[] = [
   {

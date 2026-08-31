@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import SiteFooter from '../../components/site-footer';
 import SiteHeader from '../../components/site-header';
-import { bookingUrl, fullPricing, prepaidOffers } from '../../lib/pricing';
+import { bookingUrl, fullPricing, packagesUrl, prepaidOffers } from '../../lib/pricing';
 
 export const metadata: Metadata = {
   title: 'Waxing Prices in Wichita, KS',
@@ -44,7 +44,7 @@ export default function PricingPage() {
 
             <div className="packagePanel">
               <div><div className="eyebrow">Prepaid package</div><h2>{prepaidOffers[0].name}</h2><p>{prepaidOffers[0].description}</p></div>
-              <div className="packagePrice"><strong>{prepaidOffers[0].price}</strong><a className="btn" href={bookingUrl}>View package <ArrowRight size={17} /></a></div>
+              <div className="packagePrice"><strong>{prepaidOffers[0].price}</strong><a className="btn" href={packagesUrl}>View package <ArrowRight size={17} /></a></div>
             </div>
 
             <p className="priceDisclaimer">Prices shown are the studio&apos;s current published prices and may change. Confirm the final price, eligibility, duration, and cancellation terms during online booking.</p>

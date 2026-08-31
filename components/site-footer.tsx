@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { bookingUrl } from '../lib/pricing';
+import { bookingUrl, membershipsUrl, packagesUrl } from '../lib/pricing';
 import {
   cityRegionPostal,
   email,
@@ -30,6 +30,8 @@ export default function SiteFooter() {
         <div>
           <strong>Explore</strong>
           <Link href="/pricing/">Services &amp; pricing</Link>
+          <a href={packagesUrl}>Packages</a>
+          <a href={membershipsUrl}>Memberships</a>
           <Link href="/waxing-prep-aftercare/">Preparation &amp; aftercare</Link>
           <Link href="/about-kristen/">About Kristen</Link>
         </div>

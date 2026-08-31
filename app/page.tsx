@@ -12,7 +12,7 @@ import {
 import ReviewCarousel from '../components/review-carousel';
 import SiteFooter from '../components/site-footer';
 import SiteHeader from '../components/site-header';
-import { bookingUrl, prepaidOffers, signaturePricing } from '../lib/pricing';
+import { bookingUrl, packagesUrl, prepaidOffers, signaturePricing } from '../lib/pricing';
 import { servicePages } from '../lib/service-pages';
 import {
   businessId,
@@ -260,7 +260,7 @@ export default function Home() {
                   <h3>{plan.name}</h3>
                   <div className="price">{plan.price}</div>
                   <p>{plan.description}</p>
-                  <a className="btn lightButton" href={bookingUrl}>View package availability</a>
+                  <a className="btn lightButton" href={packagesUrl}>View package availability</a>
                 </article>
               ))}
             </div>
